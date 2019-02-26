@@ -1,0 +1,124 @@
+session management
+
+online shopping 
+userID password
+chatting
+
+http - stateless protocol (if I send multiple requests, both considered independent requests)
+
+how many ways for session management:-
+-HTTPsession
+-cookie
+-URL rewriting
+-hidden form
+
+HTTPsession javadocs
+HTTPSession is an interface which provides way to identify user across more than one page request
+
+methods:-
+-getAttribute(java.lang.String..
+-getAttributeNames() : return an enumeration
+-getCreationTime() : when the session created
+-getId() : for every session, there is a separate ID (ID is automatically created)
+-getLastAccessedTime() : 
+-getMaxInactiveInterval() : 
+-getServletContext() :
+-isNew() : whether session is new or old
+-putValue() :
+-invalidate() : invalidate the session (when you log out)
+
+HttpSession session = request.getSession(true);
+HttpSession session = request.getSession(false);
+HttpSession session = request.getSession(); //use existing, if not, create new
+
+PrintWriter out = response.getWriter();
+
+response.setContentType("text/html"); //better way for new line instead of <br>
+
+HttpSession session = request.getSession();
+session.setAttribute("sessionName", "sessionValue");
+out.println(session.getId());
+out.println("<br>");
+out.println(session.getAttribute("sessionName"));
+ese hi
+getMaxInactiveInterval();
+ese hi
+isNew();
+
+11:37am
+Cookie : javaDocs
+-All research happen in foreign, that's why name is Cookie. If it had happened in India, name could have been other.
+
+Cookie ck = new Cookie("cookiename", "cookievalue");
+response.addCookie(ck);
+out.println("<html>");
+out.println("<body>");
+out.println("<form action=SecondServlet>");
+out.println("<input type=submit/>");
+out.println("</form>");
+out.println("</body>");
+out.println("</html>");
+
+SecondServlet:-
+doGet(..,..)
+{
+printwriter out = response.getWriter();
+Cookie [] cks = request.getCookies();
+for(Cookie ck : cks)
+{
+out.println(ck.getName());
+out.println(ck.getValue());
+}
+}
+
+Differences between:-
+request.setAttribute
+context.setAttribute
+session.setAttribute
+
+doGet()
+{
+printwriter out = ..
+String name = request.getParameter("name");
+HttpSession session = request.getSession();
+ServletContext context = getServletContext();
+if(name != null)
+{
+request.setAttribute("requestName", name);
+session.setAttribute("sessionName", name);
+context.setAttribute("contextName", name);
+}
+out.println("request value" + request.getAttribute("requestName"));
+//same for session and context
+}
+
+if we pass Chirag like this:-
+localhost:8084/ScopeExample/MyServlet?name=Chirag
+then null ki jagah Chirag aaega
+ab yadi name = chirag hata de, to request me null aega baaki me chirag aaega
+different browser me hata ke url run krenge to keval context me chirag aur baaki me null aega
+
+12:01pm
+Home.html :-
+Firstname : //textfield
+submit button
+
+firstservlet:-
+Display
+FirstName 
+LastName // text
+submit button
+
+secondservlet:-
+FirstName
+LastName
+Qualification //text
+submit
+
+thirdservlet:-
+first, last, qualification
+Mark //text
+submit
+
+fourthservlet:-
+Display all

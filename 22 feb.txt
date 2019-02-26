@@ -1,0 +1,127 @@
+Servlet
+server side tech
+http://www.indiatimes.com
+http
+https secure socket layer
+www - 
+com - commercial
+org - non profitable organization
+gov - 
+co.in
+mil
+
+client - http web server
+
+gmail (not case sensitive)
+email ids are not case sensitive
+chrome browser
+login
+user id - not case sensitive in gmail
+password - space not allowed (na pehle na baad me), beech me soch rhe hain abhi //is point ko rehne hi dete hain abhi
+inbox
+gmail.com
+inbox
+IE
+gmail.com
+login ---- different session for every browser
+
+
+HelloWorld
+
+HttpServlet --- HeadFirst (800 pages you will find it, out of these 400 pages are images) //one of the best book in our life
+
+first approach to develop servlet --- HttpServlet (it is an abstract class)
+
+Generic Servlet (abstract class) extends java.lang.Object
+implements Servlet, ServletConfig,java.io.Serializable
+
+//From day one of Internet, http protocol is used
+
+get -- small data, can be bookmarked
+post -- large data, sensitive data like userid password, can't be bookmarked
+non idempotent
+
+//10:05am, 22/2/19
+submit
+href (hyperlink reference)
+just like get, there is a method doGet and like post, there is doPost
+
+new -> dynamic web project -> project name(MyFirstWebApplication)
+
+apache tomcat
+/*What was the version of JPA, Hibernate, core java version you studied? (question may be asked)*/
+
+Directory structure in dynamic web application
+   src ---- class
+            servlet
+            listener
+            filter (ultimately all are java files) /*readymade templates*/
+
+webcontent
+   html
+   js
+   video
+   audio
+   Images - images (folder can be created)
+
+WEB-INF folder (predefined)
+   lib --- all libraries
+   web.xml (deployment descriptor)
+
+Common http status codes
+200 - OK, the request succeeded
+201 - created, a new resource or object in a collection
+304 - not modified, nothing was modified by request
+400 - bad request
+401 - unauthorized - authorization credentials are required
+404 - resource not found - URI is not recognized by server
+500 - server error - generic something went wrong on server
+
+right click src -> new servlet -> MyFirstServlet -> 
+
+PrintWriter out = response.getWriter(); //sending text to the client (browser is the client)
+syso("hello world");
+out.println("hello world"); //doesn't print next line
+//fir se upar wala
+String name = request.getParameter("userName");
+out.println(name);
+
+run on server
+
+html page-->
+<body>
+<form action="MyFirstServlet">
+Enter name=<input type = "text" name = "userName">
+
+first assignment
+accept two numbers then radio button to add, sub, mul, div
+based on choice show the answer in servlet
+
+error -> html
+success -> servlet
+
+getrequestdispatcher
+authentication
+authorization
+
+dopost ->
+String username = request.getParameter("userName");
+String password = request.getParameter("password");
+if(userName.equals("Chirag") && password.equals("password"))
+{
+request.setAttribute("name", userName);
+RequestDispatcher rd = request.getRequestDispatcher("success");
+rd.forward(request, response);
+}
+else
+{
+response.sendRedirect("Error.html");
+}
+
+explore 3 methods ->
+String[] getParameter values()
+getParameterNames()
+getHeaderNames()
+
+Java
+Oracle

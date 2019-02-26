@@ -1,0 +1,27 @@
+jdbc
+
+java database connectivity
+
+java - oracle 
+
+1. load the driver
+class.ForName("oracle.jdbc.driver.OracleDriver");
+
+2. Establish connection
+	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "password");
+
+3. create either statement or preparedstatement or callablestatement
+Statement stmt = con.createstatement();
+
+4. Execute query
+ Resultset rs = stmt.executeQuery("select * from emp");
+while(rs.next())
+System.out.println(rs.getInt(1)+" " +rs.getString(2));
+
+5. Close the connection object
+ con.close();
+
+rt.jar
+mockhito
+junit
+

@@ -1,0 +1,98 @@
+from server to client, apart from * what is the extra information passed
+
+1) URL pattern
+
+	@WebServlet ---- using annotation
+	deployment descriptor ---- web.xml
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>com.capgemini.MyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/myownurlpattern</url-pattern>
+	</servlet-mapping>
+
+*proper closing tag is required
+*slash should be there
+*lowercase
+else 404 error not found
+
+getWriter()
+getAttribute()
+
+just set the home page in deployment descriptor
+
+2) ServletConfig vs ServletContext
+String database = oracle
+
+doGet() //config
+{
+printwriter out = response.getwriter()
+servletconfig config = 
+string name = 
+out.println(name);
+}
+
+doGet() //context
+{
+printwriter out = response.getwriter()
+servlet context = getServletContext();
+String data = context.getInitParameter("data");
+out.println(data);
+}
+
+ServletConfig //singleton
+
+10 servlet pages
+
+URL pattern
+ServletConfig vs ServletContext
+web container //optional
+Servlet life cycle
+init //only once
+service //each time
+destroy //only once
+when the destroy method is actually called
+million dollar question :- how many init, service method are there
+project is the most imp. activity
+how many names are associated with a single servlet //3 names
+//client side :- (1)
+//develop :- name, url pattern, class (3)
+
+1) load the class in a web container
+2) create instance
+3) init
+4) service
+5) destroy
+
+web container
+ manages servlet life cycle
+         JSP life cycle
+ support multithreading
+ network support
+
+ServletContextListener (Interface)
+
+SCLDemo
+src -> new listener -> classname = myListener -> 
+
+select query
+ojdbc5.jar (lib folder)
+deployment assembly -> apply -> add -> java build path -> java build path entries -> ojdbc5.jar
+
+<context-param>
+ driver name
+ url
+ user
+ password
+
+ contextInitialized & contextDestroyed
+
+ get all parameters
+ establish connection
+
+ store connection object in attribute of ServletContext
+
+MyServlet
+get connection object
