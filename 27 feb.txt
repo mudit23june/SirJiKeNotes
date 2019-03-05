@@ -1,0 +1,94 @@
+<%   %> //scriptlet tag
+<%@   %>
+<%!   %> //declaration tag
+<%=   %> //expression tag
+Comment	<%-- comment --%>
+
+JSP
+
+model1 :-
+
+writing business logic and presentation layer in a single page
+
+then JSP introduced and model2 came
+
+model2 :-
+business logic - Servlet
+Presentation - JSP
+
+Developer
+UI Designer
+You can't expect extensive coding like business logic by UI designer. That's why separated
+
+*JSP Scripting Elements
+right click new -> jsp page (.jsp)
+webcontext
+Servlet - 
+MyJSP.jsp
+action="My...
+
+numbers from 1 to 5 print :-
+//Servlet : html code embedded in java code
+//JSP : java code embedded in html
+<%
+for(int i=1; i<=5; i++)
+{
+out.println(i); //in case of jsp I must use out
+}
+%>
+
+<%! int j; %>
+<% for(j=6; j<=10; j++){
+%>
+<%=j %>
+<% } %>
+
+translation
+compilation
+load the class in a web container
+create instance
+init
+service
+destroy
+
+*JSP Scripting Elements
+*Forms of Scripting elements
+*predefined variables
+9 implicit objects : out (JspWriter), request (HttpServletRequest), response (HttpServletResponse), config (ServletConfig), application (ServletContext), session (HttpSession), pageContext (PageContext), page (Object), exception (Throwable)
+*examples using scripting elements
+*jsp directives
+*page directive
+*include directive
+*jsp actions
+jsp:forward; jsp:useBean; jsp:getProperty; jsp:setProperty; jsp:include; jsp:plugin; jsp:fallback; jsp:element; jsp:attribute; jsp:body; jsp:param; jsp:text
+*jsp:include action //includes the runtime response of a JSP page into the current page.
+*jsp:forward action //forward the request to a new page
+*jsp standard template library (JSTL)
+*what is jstl?
+*installing jstl
+*using the expression language
+*using jstl
+
+implicit objects in jsp (Google search)
+out
+page
+application --- servletcontext
+config --- servletconfig
+exception
+request
+response
+
+<%@   %> directive tag
+types: page, include, taglib
+<%@ page ... %> defines page dependent properties such as language, session, errorPage etc.
+<%@ include ... %> defines file to be included
+<%@ taglib ... %> declares tag library used in the page
+
+
+After saving jsp file (jspfilename), 2 files with extensions .class and .java are also created whose names are jspfilename_jsp.class and jspfilename_jsp.java
+
+LocalDate.of(2016,04,30)
+
+exception.printStackTrace(response.getWriter());
+
+signature me int rating lelo

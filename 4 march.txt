@@ -1,0 +1,118 @@
+Spring MVC
+
+DispatcherServlet - not going to explain this, just hierarchy
+
+//GenericServlet is superclass of HttpServlet
+
+whole day target is spring mvc, nothing else
+
+Model View Controller
+
+Example : One person decides to start a restaurant. manage everything. take order, then cook it, decorate and serve. analogy with programming. managing everything in a single servlet. like accepting input parameter, then communicating with model, then with database, db to controller, then final giving the response
+
+Now he appoint another person who specializes in cooking.
+first - take order
+second - cook
+first - decorate and serve
+
+appoint who specializes in decoration
+similar to this analogy, we have specialization like database etc.
+
+This is the biggest topic you will find where so many background activities are going on.
+
+init(Servletconfig config)
+init()
+GenericService
+HttpService
+destroy
+shut down server
+remove the app from container
+modify servlet
+tomcat..
+
+first example from javatpoint
+Spring mvc is a java framework
+DispatcherServlet is a class
+
+some definitions: 
+*DispatcherServlet: entry/configuration point for the application
+*Controller: Command pattern object that handles the request and determines which view to route to
+*RequestMapping : the url and request type that a method is tied to
+*ViewResolver: used to locate jsp pages or whatever view we are using
+*Servlet-config: Configuration file per DispatcherServlet
+
+Model: contains data 
+
+HelloWorldController.java
+
+@Controller
+public class HelloWorldController
+{
+@RequestMapping("/hello")
+public ModelAndView helloWorld()
+{
+String message = "HELLO SPRING MVC HOW R U";
+return new ModelAndView("hellopage", "message", message); //(responsepage, key, value)//
+}
+}
+
+https://www.javatpoint.com/spring-mvc-tutorial <-- yaha se diagram refer krna h
+
+	    HandlerMapping   _ _ _ _ _ _ _ _ _ _ _ _
+                  |         / 			    \
+Request --> DispatcherServlet <-- ModelAndView -- Controller
+                |    |
+                |    |
+             View  ViewResolver
+
+When no handler mapping is explicitly specified in configuration, BeanNameUrlHandlerMapping is created and used by default
+
+Class ModelAndView : java.lang.Object -> ..
+
+
+<context:component-scan base-package="com.capgemini"/>
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/"/>
+<property name="suffix" value=".jsp"/>
+</bean>
+
+Model and RequestParam
+
+many ways are there to collect the data
+
+here we are separately storing the data and returning the data
+parameters as request and model (HttpServletRequest req, Model m)
+
+Spring MVC RequestParam Annotation
+
+public string display(@RequestParam("name")...
+
+same project using httpservletrequest and model
+
+aaj se thoda maven ki bhi practice krte hain---
+What is Maven?
+-build tool
+-project management tool
+
+we have to create a file -> POM.xml
+first thing -> project information
+second thing -> manages dependency
+third one is -> build (if you want to change java version, changing jar file name, plugins --- sonarqube)
+fourth one is -> repository, by default it downloads from maven central repository
+nexux corporate repo
+
+file -> new -> Maven project
+by default it is selecting option, take the same thing
+Group Id: com.capgemini
+Artifact Id: demo
+Finish
+
+pom.xml->
+lets add one dependency hibernate
+google search : hibernate maven dependency
+Maven repository ko open kro jo ki pehli link h
+5.4.1 final
+copy with a single click
+and paste it in pom.xml
+
+HttpRequestHandlerAdapter

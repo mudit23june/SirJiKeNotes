@@ -1,0 +1,135 @@
+Most important
+Spring framework
+Framework : provide predefined libraries
+
+9:41am
+Abhijeet will get surprise gift from sir
+All presentations will be given by him only
+
+Rod Johnson introduced spring framework in 2003
+
+One assignment : Which version we studied (of all the technologies we have studied till now)
+
+Spring framework has several modules. Spring is very popular framework
+Why spring is so popular
+* predefined templates : related to jdbc, hibernate, jpa etc. save a lot of jdbc code
+* loose coupling : because of dependency injection (based on requirement we can have different implementation)
+* easy to test : 
+* lightweight : 
+* fast development
+* powerful abstraction : provide powerful abstraction to jdbc, jpa etc.
+* declarative support
+
+/* AWT (C, C++)
+Swing (Java) [lightweight]
+
+*/
+//POJO : plain old java object which doesn't extend or implement other interface
+
+Sometimes you get dialogue like Rajaon ke raja
+Framework of frameworks
+
+Container : 
+BeanFactory - deprecated
+ApplicationContext - internationalization, event related things, AOP...
+//Internationalization : we have to consider currency format etc.
+WebApplicationContext
+
+Beanfactory docs: It is an interface
+BeanFactory
+     ^|^
+ApplicationContext
+     ^|^
+WebApplicationContext
+
+Spring Jars
+Employee.java file
+configuration file naming convention is applicationContext.xml --- spring bean configuration file
+root tag : <beans>
+
+<beans>
+//declaration (whatever you are writing is correct or not)
+<bean>
+
+</bean>
+
+</beans>
+
+MainApp
+All objects in configuration file (xml wali)
+
+Normal java project banana (not equal to kela) h
+D:\spring\springjars\spring framework 4.0.3.release\libs
+commons-logging-1.2.jar
+
+download commons logging jar (commons.apache.org)
+
+right now i am selecting all jar files
+
+10:07am
+
+int empNumber;
+String name;
+spring bean configuration file (applicationContext.xml)
+<beans xmlns="http...
+<bean id = "emp" class = "com.capgemini.Employee">
+<property name = "empNumber" value = "101"/>
+<property name = "name" value = "Chirag"/>
+</bean>
+</beans>
+
+MainApp.java:-
+psvm(S[] a)
+{
+ ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+ Employee emp = (Employee)context.getBean("emp");
+ Employee emp2 = context.getBean("emp", Employee.class);
+ syso(emp.getEmpNumber());
+ syso(emp.getName());
+}
+
+/*million dollar question : when container is started?
+how can i check whether container is created or not
+create constructor with zero parameter in beans wali class and syso(Employee constructor)
+if it shows in console, that means container is created*/
+
+Project ConstructorInjection:-
+Add Generate constructors using fields in above file
+
+sir ki repo me spring repo (/spring) pe jana h
+SetterInjection & Constructor injection
+
+Address.java
+private string 
+
+another bean create
+
+<bean id = "address" class = "com.capgemini.Address">
+<property name = "city" value="Pune"/>
+</bean>
+
+dusre wale bean me add krenge property name address ref address (value ki jagah ref)
+we can use autowired annotation also and add <context:annotation-config/>
+
+BeanLifeCycle project:-
+public class employee implements InitializingBean, DisposableBean
+afterPropertiesSet() throws exception
+{syso(Initialization);}
+destroy() {destroy print}
+
+Mainapp me jao ab
+AbstractApplicationContext context = new ClassPathXml...
+
+context.registerShutDownHook();
+baaki pehle jesa h
+
+BeanLifeCyclePOJO project
+employee wali me:
+void init()
+syso(from init);
+void destroy()
+syso(destroy);
+bean id me init method aur destroy method likhna h fir
+
+third approach is JSR annotations (Java Specification Request)
+ab sir ki repository me jana h (BeanFactoryDemo) [lazy loading : objects not created when container is started] & BeanInheritance & BeanInheritanceList

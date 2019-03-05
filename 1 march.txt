@@ -1,0 +1,53 @@
+Core spring
+
+BeanFactory
+ApplicationContext
+WebApplicationContext
+
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+/*SirKiRepo : subjective Q A
+
+What is inversion of control?
+Please go through this question*/
+
+Factory design pattern
+@Autowired
+@Qualifier
+@Component (this i will show you the demo)
+@Controller
+@Repository
+@Service
+
+New project Component:-
+Above the class i am writing @Component (Package is .stereotype.Component)
+
+@Component
+public class Employee
+
+@Autowired
+private Address address;
+
+applicationContext.xml:-
+<context:component-scan base-package="com.capgemini"></context:component-scan>
+//By doing this subpackages are also considered
+
+//we can't use javax.servlet.* in place of javax.servlet.http.*; (subpackages are not considered)
+
+MainApp.java:-
+ApplicationContext context = new ClassPathXml...
+Employee emp = (Employee)context.getBean("employee");
+syso(emp.getAddress().getCity());
+
+Scope in spring:-
+singleton : single instance per spring IoC container
+//servletcontext -> singleton design pattern
+prototype : object is created per request or per reference
+request
+session
+global session
+
+for multiple addresses we can use <list> in xml file
+
+Assignment : BeanPostProcessor
+	     MessageSourceExample
